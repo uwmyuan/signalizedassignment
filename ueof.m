@@ -14,7 +14,7 @@ for i = 1:n
         if (c(i, j) > 0)
             updated_flow = link_flows(i, j) * (1 - phi) + aux_flows(i, j) * phi;
             ueof_val = ueof_val + ...
-                integral(@(x)intersectionpf(x, c(i, j), lambda(i, j), s(i, j)), 0, updated_flow); 
+                integral(@(x)intersectionpf(x, c(i, j), lambda(i, j), s(i, j)), 0, updated_flow,'AbsTol',1,'RelTol',1); 
         end
     end
 end
